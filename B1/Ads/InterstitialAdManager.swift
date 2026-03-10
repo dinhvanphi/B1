@@ -1,78 +1,53 @@
-//
-//  InterstitialAdManager.swift
-//  B1
-//
-//  Created by Đinh Văn Phi on 10/3/26.
-//
-
-import Foundation
-import GoogleMobileAds
 import UIKit
-@MainActor
-class InterstitialAdManager: NSObject {
+import GoogleMobileAds
+
+class InterstitialAdManager: NSObject, FullScreenContentDelegate {
     
     static let shared = InterstitialAdManager()
     
-    private var interstitialAd: InterstitialAd?
+    private var interstitial: InterstitialAd?
+    private var onAdDismissed: (() -> Void)?  // ← callback sau khi đóng ad
     
-    // Test Ad Unit ID
-    private let adUnitID = "ca-app-pub-3940256099942544/2934735716"
-    
-    private override init() {
-        super.init()
+    var isAdReady: Bool {
+        return interstitial != nil
     }
     
-    // MARK: - Load Ad
+    // Load ad
     func loadAd() {
-        
-        let request = Request()
-        
-        InterstitialAd.load(with: adUnitID, request: request) { [weak self] ad, error in
-            
-            if let error = error {
-                print(" Failed to load Interstitial Ad: \(error.localizedDescription)")
-                return
+        Task {
+            do {
+                interstitial = try await InterstitialAd.load(
+                    with: "ca-app-pub-3940256099942544/4411468910",
+                    request: Request())
+                interstitial?.fullScreenContentDelegate = self
+            } catch {
+                print("Failed to load ad: \(error.localizedDescription)")
             }
-            
-            self?.interstitialAd = ad
-            self?.interstitialAd?.fullScreenContentDelegate = self
-            
-            print("Interstitial Ad Loaded")
         }
     }
     
-    // MARK: - Show Ad
-    func showAd(from viewController: UIViewController) {
-        
-        guard let interstitialAd = interstitialAd else {
-            print(" Interstitial Ad not ready")
+    // Hiện ad + callback khi đóng
+    func showAd(from viewController: UIViewController, onDismissed: @escaping () -> Void) {
+        guard let ad = interstitial else {
+            onDismissed()  // Ad chưa sẵn sàng → chuyển luôn
             return
         }
-        
-        interstitialAd.present(from: viewController)
+        self.onAdDismissed = onDismissed
+        ad.present(from: viewController)
     }
-}
-
-extension InterstitialAdManager: FullScreenContentDelegate {
     
-    // Called when ad is dismissed
+    // MARK: - FullScreenContentDelegate
+    
     func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
-        print("Interstitial Ad dismissed")
-        
-        // Load next ad
-        loadAd()
+        interstitial = nil
+        onAdDismissed?()   // ← Gọi callback → chuyển Language Screen
+        onAdDismissed = nil
     }
     
     func ad(_ ad: FullScreenPresentingAd,
             didFailToPresentFullScreenContentWithError error: Error) {
-        
-        print(" Failed to present ad: \(error.localizedDescription)")
-        
-        // Reload ad
-        loadAd()
-    }
-    
-    func adWillPresentFullScreenContent(_ ad: FullScreenPresentingAd) {
-        print(" Interstitial Ad will present")
+        interstitial = nil
+        onAdDismissed?()   // ← Lỗi → chuyển thẳng Language Screen
+        onAdDismissed = nil
     }
 }
