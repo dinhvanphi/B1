@@ -6,7 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C7057C9313FCA9D91ACCC27C /* Pods_B1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A06890E5932FBE549FBC1AC /* Pods_B1.framework */; };
+		D9D5AEFB2F5FB12600ABDBE9 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D9D5AEFA2F5FB12600ABDBE9 /* GoogleMobileAds */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		5A06890E5932FBE549FBC1AC /* Pods_B1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_B1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFF60641DD52602034568AC /* Pods-B1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B1.debug.xcconfig"; path = "Target Support Files/Pods-B1/Pods-B1.debug.xcconfig"; sourceTree = "<group>"; };
+		9786D403283283893C658E8E /* Pods-B1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B1.release.xcconfig"; path = "Target Support Files/Pods-B1/Pods-B1.release.xcconfig"; sourceTree = "<group>"; };
 		D9D5AEE12F5FB0BC00ABDBE9 /* B1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = B1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +44,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D5AEFB2F5FB12600ABDBE9 /* GoogleMobileAds in Frameworks */,
+				C7057C9313FCA9D91ACCC27C /* Pods_B1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		101272F64ECCD1841B97C6E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF60641DD52602034568AC /* Pods-B1.debug.xcconfig */,
+				9786D403283283893C658E8E /* Pods-B1.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D9D5AED82F5FB0BC00ABDBE9 = {
 			isa = PBXGroup;
 			children = (
 				D9D5AEE32F5FB0BC00ABDBE9 /* B1 */,
 				D9D5AEE22F5FB0BC00ABDBE9 /* Products */,
+				101272F64ECCD1841B97C6E6 /* Pods */,
+				E6C1923FDAE2A96439315A9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +79,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E6C1923FDAE2A96439315A9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A06890E5932FBE549FBC1AC /* Pods_B1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9D5AEF42F5FB0BF00ABDBE9 /* Build configuration list for PBXNativeTarget "B1" */;
 			buildPhases = (
+				CB3ED1034FB656415DF7E908 /* [CP] Check Pods Manifest.lock */,
 				D9D5AEDD2F5FB0BC00ABDBE9 /* Sources */,
 				D9D5AEDE2F5FB0BC00ABDBE9 /* Frameworks */,
 				D9D5AEDF2F5FB0BC00ABDBE9 /* Resources */,
+				41F96EA46583A7FE4A9BAA06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -78,6 +109,7 @@
 			);
 			name = B1;
 			packageProductDependencies = (
+				D9D5AEFA2F5FB12600ABDBE9 /* GoogleMobileAds */,
 			);
 			productName = B1;
 			productReference = D9D5AEE12F5FB0BC00ABDBE9 /* B1.app */;
@@ -107,6 +139,9 @@
 			);
 			mainGroup = D9D5AED82F5FB0BC00ABDBE9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D9D5AEF92F5FB12600ABDBE9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D9D5AEE22F5FB0BC00ABDBE9 /* Products */;
 			projectDirPath = "";
@@ -127,6 +162,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41F96EA46583A7FE4A9BAA06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-B1/Pods-B1-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-B1/Pods-B1-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-B1/Pods-B1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB3ED1034FB656415DF7E908 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-B1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9D5AEDD2F5FB0BC00ABDBE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +221,7 @@
 /* Begin XCBuildConfiguration section */
 		D9D5AEF52F5FB0BF00ABDBE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BFF60641DD52602034568AC /* Pods-B1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -171,6 +253,7 @@
 		};
 		D9D5AEF62F5FB0BF00ABDBE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9786D403283283893C658E8E /* Pods-B1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -341,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D9D5AEF92F5FB12600ABDBE9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D9D5AEFA2F5FB12600ABDBE9 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9D5AEF92F5FB12600ABDBE9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D9D5AED92F5FB0BC00ABDBE9 /* Project object */;
 }
