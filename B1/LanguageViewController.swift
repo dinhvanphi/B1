@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Language {
-    let flag: String
+    let flagImage: String
     let name: String
 }
 
@@ -17,14 +17,14 @@ class LanguageViewController: UIViewController {
 
     // MARK: - Data
     let languages: [Language] = [
-        Language(flag: "🇮🇳", name: "Hindi"),
-        Language(flag: "🇪🇸", name: "Spanish"),
-        Language(flag: "🇫🇷", name: "French"),
-        Language(flag: "🇺🇸", name: "English"),
-        Language(flag: "🇵🇹", name: "Portuguese"),
-        Language(flag: "🇰🇷", name: "Korean"),
-        Language(flag: "🇯🇵", name: "Japanese"),
-        Language(flag: "🇩🇪", name: "German"),
+        Language(flagImage: "flag_Hindi", name: "Hindi"),
+        Language(flagImage: "flag_Spanish", name: "Spanish"),
+        Language(flagImage: "flag_French", name: "French"),
+        Language(flagImage: "flag_English", name: "English"),
+        Language(flagImage: "flag_Portuguese", name: "Portuguese"),
+        Language(flagImage: "flag_Korean", name: "Korean"),
+        Language(flagImage: "flag_Korean", name: "Korean"),
+        
     ]
     
     var selectedIndex: Int = 0
@@ -97,7 +97,7 @@ class LanguageViewController: UIViewController {
     // MARK: - Actions
     @objc private func checkTapped() {
         let selected = languages[selectedIndex]
-        print("✅ Đã chọn: \(selected.name)")
+        print("Đã chọn: \(selected.name)")
         // TODO: Chuyển sang màn hình chính
     }
 }
@@ -113,19 +113,25 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
         return 64
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "LanguageCell",
             for: indexPath) as! LanguageCell
         let language = languages[indexPath.row]
-        cell.configure(flag: language.flag, name: language.name,
-                       isSelected: indexPath.row == selectedIndex)
+        
+      
+        cell.configure(
+            flagImage: language.flagImage,
+            name: language.name,
+            isSelected: indexPath.row == selectedIndex
+        )
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         tableView.reloadData()
-        print("✅ Chọn: \(languages[indexPath.row].name)")
+        print(" Chọn: \(languages[indexPath.row].name)")
     }
 }
