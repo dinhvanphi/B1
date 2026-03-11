@@ -4,7 +4,7 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("✅ SplashViewController loaded")
+        print("SplashViewController loaded")
         
         setupUI()
         InterstitialAdManager.shared.loadAd()
@@ -15,13 +15,13 @@ class SplashViewController: UIViewController {
         }
     }
 
-    // MARK: - UI bằng code (không cần Storyboard)
+    // MARK: - UI
     private func setupUI() {
         view.backgroundColor = .white
 
         // Logo
         let logo = UIImageView()
-        logo.image = UIImage(named: "logo") // ← tên ảnh trong Assets
+        logo.image = UIImage(named: "logo")
         logo.contentMode = .scaleAspectFit
         logo.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logo)
@@ -72,22 +72,22 @@ class SplashViewController: UIViewController {
     // MARK: - Chuyển màn hình
     private func showInterstitialOrLanguage() {
         if InterstitialAdManager.shared.isAdReady {
-            print("✅ Ad sẵn sàng")
+            print(" Ad sẵn sàng")
             InterstitialAdManager.shared.showAd(from: self) {
                 self.goToLanguageScreen()
             }
         } else {
-            print("⚠️ Ad chưa sẵn sàng")
+            print(" Ad chưa sẵn sàng")
             goToLanguageScreen()
         }
     }
 
     private func goToLanguageScreen() {
-        print("✅ Chuyển Language Screen")
+        print(" Chuyển Language Screen")
         
         let storyboard = UIStoryboard(name: "Language", bundle: nil)
         guard let langVC = storyboard.instantiateInitialViewController() else {
-            print("❌ Không tìm thấy Language storyboard")
+            print(" Không tìm thấy Language storyboard")
             return
         }
         guard let window = self.view.window else { return }

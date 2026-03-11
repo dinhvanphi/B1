@@ -26,21 +26,21 @@ class InterstitialAdManager: NSObject, FullScreenContentDelegate {
         }
     }
     
-    // Hiện ad + callback khi đóng
+   
     func showAd(from viewController: UIViewController, onDismissed: @escaping () -> Void) {
         guard let ad = interstitial else {
-            onDismissed()  // Ad chưa sẵn sàng → chuyển luôn
+            onDismissed()
             return
         }
         self.onAdDismissed = onDismissed
         ad.present(from: viewController)
     }
     
-    // MARK: - FullScreenContentDelegate
+    
     
     func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
         interstitial = nil
-        onAdDismissed?()   // ← Gọi callback → chuyển Language Screen
+        onAdDismissed?()
         onAdDismissed = nil
     }
     
