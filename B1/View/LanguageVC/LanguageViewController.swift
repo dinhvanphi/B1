@@ -96,6 +96,7 @@ class LanguageViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        checkButton.addTarget(self, action: #selector(checkTapped), for: .touchUpInside)
     }
 
     // MARK: - Setup TableView
@@ -111,7 +112,19 @@ class LanguageViewController: UIViewController {
     // MARK: - Actions
     @objc private func checkTapped() {
         let selected = languages[selectedIndex]
-        print("Đã chọn: \(selected.name)")
+        print("✅ Đã chọn: \(selected.name)")
+
+        // ✅ Chuyển sang Container (chứa 4 trang)
+        let container = OnboardingContainerViewController()
+
+        guard let window = self.view.window else { return }
+        window.rootViewController = container
+        UIView.transition(
+            with: window,
+            duration: 0.5,
+            options: .transitionCrossDissolve,
+            animations: nil
+        )
     }
 }
 
