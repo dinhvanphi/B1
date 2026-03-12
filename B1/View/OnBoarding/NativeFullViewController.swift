@@ -114,13 +114,13 @@ class NativeFullViewController: UIViewController {
         nativeAdView.callToActionView = installButton
 
         NSLayoutConstraint.activate([
-            // NativeAdView full màn hình
+            
             nativeAdView.topAnchor.constraint(equalTo: view.topAnchor),
             nativeAdView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             nativeAdView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             nativeAdView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            // Ad label góc trên trái
+            
             adLabel.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
             adLabel.leadingAnchor.constraint(

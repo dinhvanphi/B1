@@ -29,15 +29,6 @@ class Onboarding2ViewController: UIViewController {
         return label
     }()
 
-    private let nextButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Next", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
     private let pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.numberOfPages = 3
@@ -46,6 +37,15 @@ class Onboarding2ViewController: UIViewController {
         pc.pageIndicatorTintColor = .systemGray4
         pc.translatesAutoresizingMaskIntoConstraints = false
         return pc
+    }()
+
+    private let nextButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Next", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     // MARK: - Lifecycle
@@ -58,8 +58,8 @@ class Onboarding2ViewController: UIViewController {
     private func setupUI() {
         view.addSubview(illustrationImageView)
         view.addSubview(titleLabel)
-        view.addSubview(nextButton)
         view.addSubview(pageControl)
+        view.addSubview(nextButton)
 
         NSLayoutConstraint.activate([
             // ảnh chiếm phần lớn màn hình
@@ -70,26 +70,26 @@ class Onboarding2ViewController: UIViewController {
             illustrationImageView.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor),
             illustrationImageView.heightAnchor.constraint(
-                equalTo: view.heightAnchor, multiplier: 0.6),
+                equalTo: view.heightAnchor, multiplier: 0.55),
 
             // title
             titleLabel.topAnchor.constraint(
-                equalTo: illustrationImageView.bottomAnchor, constant: 32),
+                equalTo: illustrationImageView.bottomAnchor, constant: 24),
             titleLabel.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor, constant: -20),
 
-            // next button
-            nextButton.topAnchor.constraint(
-                equalTo: titleLabel.bottomAnchor, constant: 16),
-            nextButton.centerXAnchor.constraint(
-                equalTo: view.centerXAnchor),
-
             // page dots
             pageControl.topAnchor.constraint(
-                equalTo: nextButton.bottomAnchor, constant: 8),
+                equalTo: titleLabel.bottomAnchor, constant: 8),
             pageControl.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor),
+
+            // next button
+            nextButton.topAnchor.constraint(
+                equalTo: pageControl.bottomAnchor, constant: 6),
+            nextButton.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor),
         ])
 

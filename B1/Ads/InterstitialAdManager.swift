@@ -6,7 +6,7 @@ class InterstitialAdManager: NSObject, FullScreenContentDelegate {
     static let shared = InterstitialAdManager()
     
     private var interstitial: InterstitialAd?
-    private var onAdDismissed: (() -> Void)?  // ← callback sau khi đóng ad
+    private var onAdDismissed: (() -> Void)?  
     
     var isAdReady: Bool {
         return interstitial != nil
@@ -47,7 +47,7 @@ class InterstitialAdManager: NSObject, FullScreenContentDelegate {
     func ad(_ ad: FullScreenPresentingAd,
             didFailToPresentFullScreenContentWithError error: Error) {
         interstitial = nil
-        onAdDismissed?()   // ← Lỗi → chuyển thẳng Language Screen
+        onAdDismissed?()
         onAdDismissed = nil
     }
 }
