@@ -5,7 +5,7 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SplashViewController loaded")
-        
+        view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
         InterstitialAdManager.shared.loadAd()
         

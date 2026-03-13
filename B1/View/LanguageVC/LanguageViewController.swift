@@ -50,13 +50,15 @@ class LanguageViewController: UIViewController {
         let table = UITableView()
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         return table
     }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
+        tableView.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
         setupTableView()
         loadNativeAd()  // ← thêm

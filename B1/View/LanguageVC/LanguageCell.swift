@@ -30,6 +30,8 @@ class LanguageCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
         setupUI()
     }
 
@@ -70,7 +72,8 @@ class LanguageCell: UITableViewCell {
             nameLabel.font = .boldSystemFont(ofSize: 17)
         } else {
             containerView.layer.borderColor = UIColor.systemGray5.cgColor
-            containerView.backgroundColor = .white
+            containerView.backgroundColor = UIColor(red: 0.97, green: 0.97, blue: 0.99, alpha: 1)
+            
             nameLabel.textColor = .black
             nameLabel.font = .systemFont(ofSize: 17)
         }
