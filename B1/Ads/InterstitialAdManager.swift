@@ -6,7 +6,7 @@ class InterstitialAdManager: NSObject, FullScreenContentDelegate {
     static let shared = InterstitialAdManager()
     
     private var interstitial: InterstitialAd?
-    private var onAdDismissed: (() -> Void)?  
+    private var onAdDismissed: (() -> Void)?  		
     
     var isAdReady: Bool {
         return interstitial != nil

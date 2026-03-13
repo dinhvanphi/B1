@@ -44,6 +44,8 @@ class Onboarding2ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
+        titleLabel.text = "be_precise".localized
+        nextButton.setTitle("next_button".localized, for: .normal)
     }
 
     // MARK: - Setup UI

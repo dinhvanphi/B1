@@ -5,6 +5,7 @@ import GoogleMobileAds
 struct Language {
     let flagImage: String
     let name: String
+    let languageCode : String
 }
 
 // MARK: - Section
@@ -17,12 +18,12 @@ class LanguageViewController: UIViewController {
 
     // MARK: - Data
     let languages: [Language] = [
-        Language(flagImage: "flag_Hindi",      name: "Hindi"),
-        Language(flagImage: "flag_Spanish",    name: "Spanish"),
-        Language(flagImage: "flag_French",     name: "French"),
-        Language(flagImage: "flag_English",    name: "English"),
-        Language(flagImage: "flag_Portuguese", name: "Portuguese"),
-        Language(flagImage: "flag_Korean",     name: "Korean"),
+        Language(flagImage: "flag_Hindi",      name: "Hindi" , languageCode: "hi"),
+        Language(flagImage: "flag_Spanish",    name: "Spanish" , languageCode: "es"),
+        Language(flagImage: "flag_French",     name: "French" , languageCode: "fr"),
+        Language(flagImage: "flag_English",    name: "English" , languageCode: "en"),
+        Language(flagImage: "flag_Portuguese", name: "Portuguese" , languageCode: "pt-BR"),
+        Language(flagImage: "flag_Korean",     name: "Korean" , languageCode: "ko"),
     ]
 
     var selectedIndex: Int = 0
@@ -31,7 +32,7 @@ class LanguageViewController: UIViewController {
     // MARK: - UI Components
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Language"
+        label.text = "language.title".localized
         label.font = .boldSystemFont(ofSize: 24)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -59,9 +60,10 @@ class LanguageViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         tableView.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
+        titleLabel.text = "language_title".localized
         setupUI()
         setupTableView()
-        loadNativeAd()  // ← thêm
+        loadNativeAd()
     }
 
     // MARK: - Load Native Ad
@@ -73,7 +75,7 @@ class LanguageViewController: UIViewController {
                 self?.tableView.reloadSections(
                     IndexSet(integer: Section.nativeAd.rawValue),
                     with: .automatic)
-                print("✅ Native Ad hiển thị")
+                print(" Native Ad hiển thị")
             }
         }
     }
@@ -114,7 +116,12 @@ class LanguageViewController: UIViewController {
     // MARK: - Actions
     @objc private func checkTapped() {
         let selected = languages[selectedIndex]
-        print("✅ Đã chọn: \(selected.name)")
+        print("✅ Đã chọn: \(selected.name) - \(selected.languageCode)")
+        
+        LanguageManager.share.setLanguage(selected.languageCode)
+        
+        restartApp()
+        
 
         // ✅ Chuyển sang Container (chứa 4 trang)
         let container = OnboardingContainerViewController()
@@ -127,6 +134,13 @@ class LanguageViewController: UIViewController {
             options: .transitionCrossDissolve,
             animations: nil
         )
+    }
+    
+    private func restartApp() {
+        guard let window = self.view.window else {return}
+        
+        let container = OnboardingContainerViewController()
+        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {window.rootViewController = container})
     }
 }
 

@@ -2,22 +2,45 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
+    // ✅ Khai báo là property để truy cập được
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemBlue
+        label.font = .boldSystemFont(ofSize: 22)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .lightGray
+        label.font = .systemFont(ofSize: 13)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SplashViewController loaded")
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
+
+        // ✅ Set localized text sau setupUI()
+        titleLabel.text    = "splash_title".localized
+        subtitleLabel.text = "sub_title".localized
+
         InterstitialAdManager.shared.loadAd()
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-          
             self.showInterstitialOrLanguage()
         }
     }
 
     // MARK: - UI
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
 
         // Logo
         let logo = UIImageView()
@@ -26,23 +49,9 @@ class SplashViewController: UIViewController {
         logo.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logo)
 
-        // Tên app
-        let label = UILabel()
-        label.text = "AI Language Translator"
-        label.textColor = .systemBlue
-        label.font = .boldSystemFont(ofSize: 22)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-
-        // Subtitle
-        let subtitle = UILabel()
-        subtitle.text = "This action may contain ads"
-        subtitle.textColor = .lightGray
-        subtitle.font = .systemFont(ofSize: 13)
-        subtitle.textAlignment = .center
-        subtitle.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(subtitle)
+        // ✅ Dùng property thay vì local variable
+        view.addSubview(titleLabel)
+        view.addSubview(subtitleLabel)
 
         // Progress bar
         let progress = UIProgressView(progressViewStyle: .default)
@@ -57,41 +66,42 @@ class SplashViewController: UIViewController {
             logo.widthAnchor.constraint(equalToConstant: 120),
             logo.heightAnchor.constraint(equalToConstant: 120),
 
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 16),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 16),
 
-            subtitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            subtitle.bottomAnchor.constraint(equalTo: progress.topAnchor, constant: -8),
+            subtitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subtitleLabel.bottomAnchor.constraint(equalTo: progress.topAnchor, constant: -8),
 
             progress.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             progress.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            progress.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+            progress.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
         ])
     }
 
     // MARK: - Chuyển màn hình
     private func showInterstitialOrLanguage() {
         if InterstitialAdManager.shared.isAdReady {
-            print(" Ad sẵn sàng")
+            print("✅ Ad sẵn sàng")
             InterstitialAdManager.shared.showAd(from: self) {
                 self.goToLanguageScreen()
             }
         } else {
-            print(" Ad chưa sẵn sàng")
+            print("⚠️ Ad chưa sẵn sàng")
             goToLanguageScreen()
         }
     }
 
     private func goToLanguageScreen() {
-        print(" Chuyển Language Screen")
-        
+        print("✅ Chuyển Language Screen")
+
         let storyboard = UIStoryboard(name: "Language", bundle: nil)
         guard let langVC = storyboard.instantiateInitialViewController() else {
-            print(" Không tìm thấy Language storyboard")
+            print("❌ Không tìm thấy Language storyboard")
             return
         }
         guard let window = self.view.window else { return }
-        
+
         window.rootViewController = langVC
         UIView.transition(
             with: window,
@@ -101,4 +111,3 @@ class SplashViewController: UIViewController {
         )
     }
 }
-

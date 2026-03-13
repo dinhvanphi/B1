@@ -15,10 +15,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+        if LanguageManager.share.hasSelectedLanguage {
+            let code = LanguageManager.share.currentLanguage
+            UserDefaults.standard.set([code] , forKey: "AppleLanguage")
+            UserDefaults.standard.synchronize()
+            print ("Ngôn ngữ đã load : \(code)")
+            
+        }
         let window = UIWindow(windowScene: windowScene)
         
-        // ✅ Tạo thẳng bằng code - không qua Storyboard
+        
         let splashVC = SplashViewController()
         
         window.rootViewController = splashVC

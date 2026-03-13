@@ -128,7 +128,9 @@ class Onboarding1ViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
         loadNativeAd()
-//        setupSwipeGesture()
+        titleLabel.text = "wellcome_title".localized
+        nextButton.setTitle("next_button".localized, for: .normal)
+
         
     }
     

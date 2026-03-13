@@ -118,8 +118,10 @@ class Onboarding3ViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
         loadNativeAd()
+        titleLabel.text = "without_delay".localized
+        nextButton.setTitle("next_button".localized, for: .normal)
     }
-
+    
     // MARK: - Setup UI
     private func setupUI() {
         view.addSubview(illustrationImageView)
