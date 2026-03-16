@@ -30,22 +30,22 @@ class OnboardingContainerViewController: UIViewController {
 
     // MARK: - Setup
     private func setupPageViewController() {
-        // Tạo PageViewController vuốt ngang
+        
         pageViewController = UIPageViewController(
-            transitionStyle: .scroll,       // ← vuốt ngang mượt
+            transitionStyle: .scroll,
             navigationOrientation: .horizontal,
             options: nil)
 
         pageViewController.dataSource = self
         pageViewController.delegate   = self
 
-        // Màn hình đầu tiên = Onboarding 1
+        
         pageViewController.setViewControllers(
             [pages[0]],
             direction: .forward,
             animated: false)
 
-        // Thêm vào container
+        
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +89,7 @@ extension OnboardingContainerViewController: UIPageViewControllerDelegate {
         if completed,
            let currentVC = pageViewController.viewControllers?.first,
            let index = pages.firstIndex(of: currentVC) {
-            print("✅ Trang hiện tại: \(index)")
+            print(" Trang hiện tại: \(index)")
         }
     }
 }

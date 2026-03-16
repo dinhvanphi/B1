@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B86CC736DCCD2A9FE235E953 /* Pods_B1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BC7D6248DF4A99FDE0983 /* Pods_B1.framework */; };
-		D9648BF72F63A1F6008D78FB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D9648BF62F63A1F6008D78FB /* Localizable.xcstrings */; };
 		D9D5AEFB2F5FB12600ABDBE9 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = D9D5AEFA2F5FB12600ABDBE9 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
@@ -16,7 +15,6 @@
 		964EA9133C2B093DBB6ED398 /* Pods-B1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B1.debug.xcconfig"; path = "Target Support Files/Pods-B1/Pods-B1.debug.xcconfig"; sourceTree = "<group>"; };
 		A0750DC20ADD78096D4F9F48 /* Pods-B1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B1.release.xcconfig"; path = "Target Support Files/Pods-B1/Pods-B1.release.xcconfig"; sourceTree = "<group>"; };
 		B53BC7D6248DF4A99FDE0983 /* Pods_B1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_B1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9648BF62F63A1F6008D78FB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D9D5AEE12F5FB0BC00ABDBE9 /* B1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = B1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,7 +72,6 @@
 		D9D5AED82F5FB0BC00ABDBE9 = {
 			isa = PBXGroup;
 			children = (
-				D9648BF62F63A1F6008D78FB /* Localizable.xcstrings */,
 				D9D5AEE32F5FB0BC00ABDBE9 /* B1 */,
 				D9D5AEE22F5FB0BC00ABDBE9 /* Products */,
 				101272F64ECCD1841B97C6E6 /* Pods */,
@@ -139,11 +136,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 				"en-GB",
 				es,
-				fr,
 				"pt-BR",
-				ko,
+				fr,
 				hi,
 			);
 			mainGroup = D9D5AED82F5FB0BC00ABDBE9;
@@ -166,7 +163,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9648BF72F63A1F6008D78FB /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +296,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -355,7 +350,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -365,7 +359,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -413,7 +406,6 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -134,7 +134,7 @@ class NativeAdCell: UITableViewCell {
             installButton.bottomAnchor.constraint(equalTo: adView.bottomAnchor, constant: -12)
         ])
         
-        // Gán views cho NativeAdView
+       
         adView.iconView = iconImageView
         adView.headlineView = headlineLabel
         adView.bodyView = bodyLabel

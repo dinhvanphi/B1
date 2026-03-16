@@ -245,14 +245,14 @@ class Onboarding3ViewController: UIViewController {
                 if let icon = ad.icon {
                     self.adIconImageView.image = icon.image
                 }
-                print("✅ Onboarding3 Native Ad loaded")
+                print(" Onboarding3 Native Ad loaded")
             }
         }
     }
 
     // MARK: - Actions
     @objc private func nextTapped() {
-        print("✅ Onboarding 3 → Finish")
+        print(" Onboarding 3 → Finish")
         // TODO: Chuyển sang màn hình chính
     }
 }

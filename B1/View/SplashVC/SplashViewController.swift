@@ -2,7 +2,7 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
-    // ✅ Khai báo là property để truy cập được
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
@@ -27,7 +27,7 @@ class SplashViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.94, green: 0.95, blue: 0.98, alpha: 1)
         setupUI()
 
-        // ✅ Set localized text sau setupUI()
+       
         titleLabel.text    = "splash_title".localized
         subtitleLabel.text = "sub_title".localized
 
@@ -49,7 +49,7 @@ class SplashViewController: UIViewController {
         logo.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logo)
 
-        // ✅ Dùng property thay vì local variable
+        
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
 
@@ -82,22 +82,22 @@ class SplashViewController: UIViewController {
     // MARK: - Chuyển màn hình
     private func showInterstitialOrLanguage() {
         if InterstitialAdManager.shared.isAdReady {
-            print("✅ Ad sẵn sàng")
+            print(" Ad sẵn sàng")
             InterstitialAdManager.shared.showAd(from: self) {
                 self.goToLanguageScreen()
             }
         } else {
-            print("⚠️ Ad chưa sẵn sàng")
+            print(" Ad chưa sẵn sàng")
             goToLanguageScreen()
         }
     }
 
     private func goToLanguageScreen() {
-        print("✅ Chuyển Language Screen")
+        print(" Chuyển Language Screen")
 
         let storyboard = UIStoryboard(name: "Language", bundle: nil)
         guard let langVC = storyboard.instantiateInitialViewController() else {
-            print("❌ Không tìm thấy Language storyboard")
+            print(" Không tìm thấy Language storyboard")
             return
         }
         guard let window = self.view.window else { return }

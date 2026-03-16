@@ -27,7 +27,7 @@ class LanguageViewController: UIViewController {
     ]
 
     var selectedIndex: Int = 0
-    var nativeAd: NativeAd?  // ← thêm
+    var nativeAd: NativeAd?  
 
     // MARK: - UI Components
     private let titleLabel: UILabel = {
@@ -110,20 +110,20 @@ class LanguageViewController: UIViewController {
         tableView.register(LanguageCell.self,
                            forCellReuseIdentifier: "LanguageCell")
         tableView.register(NativeAdCell.self,
-                           forCellReuseIdentifier: "NativeAdCell")  // ← thêm
+                           forCellReuseIdentifier: "NativeAdCell")
     }
 
     // MARK: - Actions
     @objc private func checkTapped() {
         let selected = languages[selectedIndex]
-        print("✅ Đã chọn: \(selected.name) - \(selected.languageCode)")
+        print(" Đã chọn: \(selected.name) - \(selected.languageCode)")
         
         LanguageManager.share.setLanguage(selected.languageCode)
         
         restartApp()
         
 
-        // ✅ Chuyển sang Container (chứa 4 trang)
+      
         let container = OnboardingContainerViewController()
 
         guard let window = self.view.window else { return }
@@ -147,7 +147,7 @@ class LanguageViewController: UIViewController {
 // MARK: - UITableViewDelegate & DataSource
 extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
 
-    // ✅ 2 sections
+  
     func numberOfSections(in tableView: UITableView) -> Int {
         return Section.allCases.count
     }

@@ -32,7 +32,7 @@ class Onboarding2ViewController: UIViewController {
         return button
     }()
 
-    // ✅ Custom page indicator
+
     private let pageIndicator: CustomPageIndicator = {
         let indicator = CustomPageIndicator(numberOfPages: 3, currentPage: 1)
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ class Onboarding2ViewController: UIViewController {
 
         NSLayoutConstraint.activate([
 
-            // ✅ Ảnh chiếm 70% màn hình
+            
             illustrationImageView.topAnchor.constraint(
                 equalTo: view.topAnchor),
             illustrationImageView.leadingAnchor.constraint(
@@ -67,20 +67,20 @@ class Onboarding2ViewController: UIViewController {
             illustrationImageView.heightAnchor.constraint(
                 equalTo: view.heightAnchor, multiplier: 0.70),
 
-            // ✅ Page indicator neo dưới cùng
+            
             pageIndicator.bottomAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
             pageIndicator.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor),
             pageIndicator.heightAnchor.constraint(equalToConstant: 8),
 
-            // ✅ Next button ngay trên dots
+            
             nextButton.bottomAnchor.constraint(
                 equalTo: pageIndicator.topAnchor, constant: -10),
             nextButton.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor),
 
-            // ✅ Title ngay trên Next button
+            
             titleLabel.bottomAnchor.constraint(
                 equalTo: nextButton.topAnchor, constant: -12),
             titleLabel.leadingAnchor.constraint(
@@ -99,6 +99,6 @@ class Onboarding2ViewController: UIViewController {
 
     // MARK: - Actions
     @objc private func nextTapped() {
-        print("✅ Onboarding 2 → Next")
+        print(" Onboarding 2 → Next")
     }
 }

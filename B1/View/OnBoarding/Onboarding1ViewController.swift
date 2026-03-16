@@ -138,7 +138,7 @@ class Onboarding1ViewController: UIViewController {
 
     // MARK: - Setup UI
     private func setupUI() {
-        // Thêm 4 view chính
+        
         view.addSubview(checkmarkButton)
         view.addSubview(illustrationImageView)
         view.addSubview(titleLabel)
@@ -151,7 +151,7 @@ class Onboarding1ViewController: UIViewController {
 
         NSLayoutConstraint.activate([
 
-            // ✅ View 1: Checkmark góc trái
+            
             checkmarkButton.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
             checkmarkButton.leadingAnchor.constraint(
@@ -159,7 +159,7 @@ class Onboarding1ViewController: UIViewController {
             checkmarkButton.widthAnchor.constraint(equalToConstant: 30),
             checkmarkButton.heightAnchor.constraint(equalToConstant: 30),
 
-            // ✅ View 2: Ảnh lớn
+            
             illustrationImageView.topAnchor.constraint(
                 equalTo: checkmarkButton.bottomAnchor, constant: 16),
             illustrationImageView.leadingAnchor.constraint(
@@ -169,7 +169,6 @@ class Onboarding1ViewController: UIViewController {
             illustrationImageView.heightAnchor.constraint(
                 equalTo: view.heightAnchor, multiplier: 0.35),
 
-            // ✅ View 3: Title
             titleLabel.topAnchor.constraint(
                 equalTo: illustrationImageView.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(
@@ -189,7 +188,7 @@ class Onboarding1ViewController: UIViewController {
             pageControl.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor),
 
-            // ✅ View 4: Native Ad - dưới cùng
+            
             nativeAdView.topAnchor.constraint(
                 equalTo: pageControl.bottomAnchor, constant: 12),
             nativeAdView.leadingAnchor.constraint(
@@ -276,19 +275,19 @@ class Onboarding1ViewController: UIViewController {
                 if let icon = ad.icon {
                     self.adIconImageView.image = icon.image
                 }
-                print("✅ Native Ad loaded")
+                print(" Native Ad loaded")
             }
         }
     }
 
     // MARK: - Actions
     @objc private func nextTapped() {
-        print("✅ Next → Onboarding 2")
+        print(" Next → Onboarding 2")
         onNextTapped?()  // callback chuyển trang
     }
 
     @objc private func checkmarkTapped() {
-        print("✅ Checkmark tapped")
-        // TODO: quay lại Language Screen
+        print(" Checkmark tapped")
+        
     }
 }

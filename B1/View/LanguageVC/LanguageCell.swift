@@ -60,7 +60,7 @@ class LanguageCell: UITableViewCell {
         ])
     }
 
-    // ✅ Nhận flagImage là tên ảnh trong Assets
+   
     func configure(flagImage: String, name: String, isSelected: Bool) {
         flagImageView.image = UIImage(named: flagImage)
         nameLabel.text = name

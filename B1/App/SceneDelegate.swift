@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
-        print("✅ SplashVC loaded: \(type(of: splashVC))")
+        print("SplashVC loaded: \(type(of: splashVC))")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

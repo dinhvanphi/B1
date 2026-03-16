@@ -12,7 +12,7 @@ import GoogleMobileAds
 class NativeFullViewController: UIViewController {
 
     // MARK: - Properties
-    var onDismissed: (() -> Void)?  // callback khi đóng
+    var onDismissed: (() -> Void)?  
 
     // MARK: - UI
     private var nativeAdView: NativeAdView = {
@@ -202,14 +202,14 @@ class NativeFullViewController: UIViewController {
                 if let icon = ad.icon {
                     self.adIconImageView.image = icon.image
                 }
-                print("✅ Native Full Ad loaded")
+                print(" Native Full Ad loaded")
             }
         }
     }
 
     // MARK: - Actions
     @objc private func closeTapped() {
-        print("✅ Đóng Native Full")
+        print(" Đóng Native Full")
        
     }
 
